@@ -1,0 +1,132 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: white;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
+
+#control-panel {
+  position: absolute;
+  background-color: #c4c4c4;
+  z-index: 99;
+  width: 300px;
+  height: 150px;
+  top: 10px;
+}
+
+#cp-header {
+  width: 100%;
+  background-color: #40305e;
+  color: white;
+}
+
+#cp-controls {
+  display: grid;
+}
+
+#master-canvas {
+  background-color: #2c3135;
+  margin: 0;
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid cyan;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#kaleidoscope {
+  width: 600px;
+  height: 600px;
+  background-color: #f2f2f2;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: gem-a-rotate-neg;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.segment {
+  position: absolute;
+  height: 50%;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transform-origin: center top;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gem-a {
+  position: relative;
+  border: 1px solid red;
+  display: inline-block;
+  transform-origin: 0% -20%;
+  top: 20%;
+  left: 60px;
+  animation-name: gem-a-rotate;
+  animation-duration: 9s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.gem-a-top {
+  background-color: red;
+  width: 30px;
+  height: 50px;
+  position: absolute;
+  animation-name: gem-a-rotate;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.gem-a-base {
+  background-color: brown;
+  transform: rotate(45deg);
+  width: 50px;
+  height: 50px;
+  animation-name: gem-a-rotate-neg;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes gem-a-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gem-a-rotate-neg {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pie Chart</title>
+    <style>
+      .pie-chart {
+        width: 500px;
+        height: 500px;
+      }
+
+      .pie-slice {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        clip: path(polygon(50% 50%, 0 0, 100% 0));
+        transform: rotate(0deg);
+      }
+
+      .pie-slice.active {
+        clip: path(polygon(50% 50%, 0 0, 100% 0));
+        transform: rotate(360deg);
+      }
+
+      #slider {
+        width: 100%;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pie-chart"></div>
+    <input type="range" id="slider" min="2" max="12" value="6" />
+
+    <script>
+      const pieChart = document.querySelector(".pie-chart");
+      const slider = document.querySelector("#slider");
+
+      function createPieChart(numberOfSlices) {
+        // Remove existing slices
+        pieChart.innerHTML = "";
+
+        // Create new slices
+        for (let i = 0; i < numberOfSlices; i++) {
+          const slice = document.createElement("div");
+          slice.classList.add("pie-slice");
+          slice.style.backgroundColor = `hsl(${
+            (i * 360) / numberOfSlices
+          }, 100%, 50%)`;
+
+          pieChart.appendChild(slice);
+        }
+      }
+
+      // Update the pie chart when the slider value changes
+      slider.addEventListener("input", function () {
+        createPieChart(this.value);
+      });
+
+      // Create the initial pie chart
+      createPieChart(slider.value);
+    </script>
+  </body>
+</html>

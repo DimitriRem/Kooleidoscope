@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kaleidoscope Dim 1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="master-canvas">
+      <div id="kaleidoscope"></div>
+    </div>
+    <div id="control-panel">
+      <div id="cp-header">Controls</div>
+      <div id="cp-controls">
+        <div>
+          <label for="segments-amount"
+            >Number of Segments
+            <span id="sa-indicator" class="cp-indicator"></span></label
+          ><br />
+          <input
+            type="range"
+            id="segments-amount"
+            min="2"
+            max="12"
+            step="1"
+            value="4"
+          />
+        </div>
+        <div>
+          <label for="rotation-speed"
+            >Kaleidoscope Rotation Speed:
+            <span id="krs-indicator" class="cp-indicator"></span
+          ></label>
+          <input
+            type="range"
+            id="rotation-speed"
+            min="0"
+            max="60"
+            step="0.1"
+            value="0"
+          />
+        </div>
+      </div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
