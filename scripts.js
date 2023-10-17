@@ -45,13 +45,17 @@ const animatedElement = document.getElementById("kaleidoscope");
 const krsInd = document.getElementById("krs-indicator");
 const segmentsAmount = document.getElementById("segments-amount");
 const saInd = document.getElementById("sa-indicator");
+const particleCount = document.getElementById("particle-count");
+const pcInd = document.getElementById("pc-indicator");
 
+// kaleidoscope rotation control
 rangeInput.addEventListener("input", function () {
   const durationValue = this.value;
   animatedElement.style.animationDuration = durationValue + "s";
   krsInd.innerText = durationValue + "s";
 });
 
+//segment and particle generator
 segmentsAmount.addEventListener("input", function () {
   const segmentCount = this.value;
   kaleidoscope.innerHTML = "";
@@ -71,6 +75,28 @@ segmentsAmount.addEventListener("input", function () {
       "#" + Math.floor(Math.random() * 16777215).toString(16);
     segment.style.width = `${widthLookUp[segmentCount]}%`;
     kaleidoscope.appendChild(segment);
+
+    // particle count control
+    particleCount.addEventListener("input", function () {
+      const gemsAmount = this.value;
+      segment.innerHTML = "";
+      pcInd.innerText = gemsAmount;
+
+      //add particles
+      const gemBox = document.createElement("div");
+
+      for (let i = 0; i < gemsAmount; i++) {
+        const gem = document.createElement("div");
+        gem.classList.add("gem");
+        gem.style.borderColor =
+          "#" + Math.floor(Math.random() * 16777215).toString(16);
+        gem.style.left = Math.random() * segment.clientWidth + "px";
+        gem.style.top = Math.random() * segment.clientHeight + "px";
+        gemBox.appendChild(gem);
+      }
+      segment.appendChild(gemBox);
+    });
   }
+
   saInd.innerText = segmentCount;
 });

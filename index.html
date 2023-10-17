@@ -16,7 +16,7 @@
         <div>
           <label for="segments-amount"
             >Number of Segments
-            <span id="sa-indicator" class="cp-indicator"></span></label
+            <span id="sa-indicator" class="cp-indicator">4</span></label
           ><br />
           <input
             type="range"
@@ -30,8 +30,8 @@
         <div>
           <label for="rotation-speed"
             >Kaleidoscope Rotation Speed:
-            <span id="krs-indicator" class="cp-indicator"></span
-          ></label>
+            <span id="krs-indicator" class="cp-indicator">0</span></label
+          >
           <input
             type="range"
             id="rotation-speed"
@@ -39,6 +39,20 @@
             max="60"
             step="0.1"
             value="0"
+          />
+        </div>
+        <div>
+          <label for="particle-count"
+            >Number of Inner Particles:
+            <span id="pc-indicator" class="pc-indicator">1</span></label
+          >
+          <input
+            type="range"
+            id="particle-count"
+            min="1"
+            max="10"
+            step="1"
+            value="1"
           />
         </div>
       </div>
