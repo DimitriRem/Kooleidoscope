@@ -29,6 +29,20 @@
           />
         </div>
       </div>
+      <div class="control-item">
+        <label for="particle-count"
+          >Number of Inner Particles:
+          <span id="pc-indicator" class="indicator">1</span></label
+        >
+        <input
+          type="range"
+          id="particle-count"
+          min="1"
+          max="20"
+          step="1"
+          value="1"
+        />
+      </div>
       <div id="cp-controls">
         <div class="control-item">
           <label for="segments-amount"
@@ -59,20 +73,7 @@
             value="10"
           />
         </div>
-        <div class="control-item">
-          <label for="particle-count"
-            >Number of Inner Particles:
-            <span id="pc-indicator" class="indicator">1</span></label
-          >
-          <input
-            type="range"
-            id="particle-count"
-            min="1"
-            max="20"
-            step="1"
-            value="1"
-          />
-        </div>
+
         <div class="control-item" id="f11text">
           Press <span class="keyIcon">F11</span> for fullscreen
         </div>
